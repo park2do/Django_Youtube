@@ -17,7 +17,7 @@ jobs:
         uses: docker/login-action@v2 # 다른 Docker 레지스트리에 로그인하기 위해 사용하는 GitHub Action
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.DUCKERHUB_TOKEN }}
 
       - name: Test # 테스트 코드 실행
         run: docker-compose run --rm app sh -c "python manage.py test"
