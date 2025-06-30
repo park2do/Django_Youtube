@@ -12,6 +12,12 @@ jobs:
       - name: Checkout # 깃헙 레포에 있는 코드를 작업 환경으로 가져오는 역할
         uses: actions/checkout@v2
 
+      - name: Install Docker compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          docker-compose --version
+
       # 도커 연결 작업
       - name: Login in to Docker Hub
         uses: docker/login-action@v2 # 다른 Docker 레지스트리에 로그인하기 위해 사용하는 GitHub Action
